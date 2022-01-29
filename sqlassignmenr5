@@ -1,0 +1,14 @@
+--Assignment 5
+
+-- query to print details of workers excluding First_Names of 'Harshit' and 'Ashutosh'
+Select * from Worker
+where first_Name!= 'Harshit' AND First_Name!= 'Ashutosh'
+
+-- details of workers whose first_Name ends with 'h' and contains 6 alphabets
+select * from Worker
+where len( First_Name) = 6 AND RIGHT(First_Name,1) = 'h' 
+
+-- query to Validate the email of the employee
+select EMAIL,(CONCAT (Lower(First_Name),LOWER(Last_Name),'@ineuron.com') )as 'Valid E- Mail'
+from worker
+where EMAIL = (CONCAT(Lower(First_Name),Lower(Last_Name),'@ineuron.com') 

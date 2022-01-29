@@ -1,0 +1,17 @@
+--Assignment3
+
+-- query to print first namae from worker table after removing white spaces from right side
+SELECT RTRIM(First_name)
+FROM Worker
+
+--sql query that fetches unique values of department from workers tables and prints its length
+select distinct department,len (Department) as length
+From worker
+
+-- query to fetch nth maximum salaries fromm the table
+select Max(salary) as '4th highest salary'
+From Worker
+where Salary not IN
+(select distinct top 3 Salary
+from Worker
+order by salary Desc)

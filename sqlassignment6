@@ -1,0 +1,16 @@
+--Assignment6
+
+-- to fetch details of workers joined in feb 2014
+select * from worker
+where Month(join_date) = 2 AND YEAR(join_date) = 2014
+
+--for fetching duplicate records
+select First_Name,Last_Name,count(*) from worker	
+group by First_Name,Last_Name
+having count(*) > 1;
+
+--deleting duplicate rows
+delete from worker
+where ID not in 
+(Select MAX(ID)from worker
+Group by First_Name,Last_Name)

@@ -1,0 +1,12 @@
+--query to fetch "first_name" from worker table using the alias name as worker_name
+
+select * from Worker;
+SELECT First_Name AS 'WORKER NAME'
+FROM Worker
+
+--query to fetch unique values of department
+select DISTINCT  DEPARTMENT
+FROM Worker
+
+--query to show last 5 records
+SELECT top 5* FROM Worker order by ID

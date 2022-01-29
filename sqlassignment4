@@ -1,0 +1,15 @@
+--Assignment 4
+
+--to print first name by replacing a with A
+SELECT First_Name, replace ( First_Name ,'a','A') AS 'replaced'
+FROM Worker
+
+--to print worker details by order first name Ascending and department descending
+select *
+from Worker
+order BY First_Name, DEPARTMENT Desc
+
+--query to fetch names of workers who earn highest salary
+SELECT First_Name,Salary
+From Worker
+where Salary = (select Max(Salary) From worker)

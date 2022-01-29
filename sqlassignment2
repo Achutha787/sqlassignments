@@ -1,0 +1,23 @@
+--Assignment2
+
+--query to print first 3 characters of  firstname from table
+select * from Worker
+SELECT LEFT(First_name , 3) AS 'First 3 Letters'
+FROM Worker
+
+INSERT INTO Worker Values('Amithabh','Rao','amithabhrao@ineuron.com','Marketing', 36000, '2018-11-30')
+select  * from Worker
+
+--query to find position of the alphabet ('a') in the firstname column'Amitabh' from table
+select CHARINDEX('a',First_name) AS position
+FROM Worker
+where First_Name = 'Amithabh'
+
+-- query to print name of employees having highest salary in each department
+WITH W1 AS (SELECT  [DEPARTMENT]  AS Department , MAX([Salary]) AS Salary
+FROM Worker
+GROUP BY  [DEPARTMENT])
+SELECT w.First_name , w.Last_name, w.DEPARTMENT , w.Salary 
+FROM Worker w
+JOIN W1 
+ON w.DEPARTMENT = W1.Department AND w.Salary = W1.Salary
